@@ -1,6 +1,6 @@
 flask~=2.0.1
-newspaper3k
-nltk~=3.6.2
+newspaper3k~=0.2.8
+nltk~=3.6.3
 requests~=2.26.0
-beautifulsoup4~=4.12.2
-python-dotenv
+beautifulsoup4~=4.10.0
+python-dotenv~=0.19.1
