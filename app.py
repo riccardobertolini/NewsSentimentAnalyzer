@@ -5,10 +5,13 @@ import requests
 from dotenv import load_dotenv
 import os
 
+# Load environment variables from .env file (API for newsapi.org)
 load_dotenv()
 
+# Download the VADER lexicon for sentiment analysis
 nltk.download('vader_lexicon')
 
+# Create the Flask application instance / backend server
 app = Flask(__name__)
 
 
@@ -17,6 +20,7 @@ def index():
     return render_template('index.html')
 
 
+# This is the route for analyzing the news sentiment
 @app.route('/analyze', methods=['POST'])
 def analyze():
     keyword = request.form['keyword']
@@ -25,6 +29,7 @@ def analyze():
     return render_template('results.html', keyword=keyword, results=zipped_results)
 
 
+# This function is used on the frontend, templates/result.html to get the maximum value in an iterable
 def find_max(iterable):
     return max(iterable)
 
@@ -32,6 +37,7 @@ def find_max(iterable):
 app.jinja_env.filters['max'] = find_max
 
 
+# Retrive news from the endpoint with given keyword. Analyse it and return it to frontend
 def get_news_sentiment(keyword):
     articles = []
     sentiment_scores = []
