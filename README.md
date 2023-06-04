@@ -41,11 +41,5 @@ The News Sentiment Analyzer is a web application that allows users to analyze th
 3. Enter a keyword in the search box and click the "Analyze" button.
 4. The sentiment analysis results will be displayed, and you can use the filter buttons to view articles based on sentiment.
 
-## Contributing
 
-Contributions to the News Sentiment Analyzer project are welcome! If you find any issues or have suggestions for improvements, please submit an issue or a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
