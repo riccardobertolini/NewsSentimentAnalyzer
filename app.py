@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
-import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import requests
 from dotenv import load_dotenv
 import os
+import nltk
 
 # Load environment variables from .env file (API for newsapi.org)
 load_dotenv()
@@ -30,14 +30,12 @@ def analyze():
 
 
 # This function is used on the frontend, templates/result.html to get the maximum value in an iterable
+@app.template_filter('max')
 def find_max(iterable):
     return max(iterable)
 
 
-app.jinja_env.filters['max'] = find_max
-
-
-# Retrive news from the endpoint with given keyword. Analyse it and return it to frontend
+# This function is used on the frontend, templates/result.html to get the maximum value in an iterable
 def get_news_sentiment(keyword):
     articles = []
     sentiment_scores = []
