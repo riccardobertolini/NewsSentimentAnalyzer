@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #555;
+        }
+
+        .formGroup {
+            margin-bottom: 20px;
+        }
+
+        .formGroup label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .formGroup input {
+            height: 40px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .formGroup button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Add custom Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* Additional styles */
+        body {
+            font-size: 16px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>News Sentiment Analysis</h1>
+        <p>This software will evaluate the news available on newsapi.org, inspecting the sentiment and returning an evaluation.</p>
+        <p>On the result page, buttons on top will help to filter out.</p>
+        <form action="/analyze" method="POST" class="formGroup">
+            <label for="keyword">Enter a keyword:</label><br><br>
+            <input type="text" id="keyword" name="keyword" required><br><br>
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+</body>
+</html>

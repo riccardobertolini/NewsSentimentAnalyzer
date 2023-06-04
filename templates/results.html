@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis Results: {{ keyword }}</title>
+    <style>
+body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding-bottom: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .article {
+            margin-bottom: 20px;
+        }
+
+        .article h2 {
+            margin-bottom: 10px;
+        }
+
+        .article p {
+            margin-bottom: 5px;
+        }
+
+        .article hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+        }
+        .filterButtonContainer {
+            text-align: center;
+        }
+
+        .filterButton {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .filterButton:hover {
+            background-color: #45a049;
+        }
+
+        .filterButton[data-sentiment='neutral'] {
+            background-color: #888;
+        }
+
+        .filterButton[data-sentiment='negative'] {
+            background-color: #f44336;
+        }
+
+        .filterButton[data-sentiment='all'] {
+            background-color: #808080;
+        }
+
+        .positive {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            padding: 4px;
+        }
+
+        .negative {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            padding: 4px;
+        }
+
+        .neutral {
+            background-color: gray;
+            color: white;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Results for '{{ keyword }}'</h1>
+    <div class="filterButtonContainer">
+        <button class="filterButton" data-sentiment="positive">Show Positive</button>
+        <button class="filterButton" data-sentiment="neutral">Show Neutral</button>
+        <button class="filterButton" data-sentiment="negative">Show Negative</button>
+        <button class="filterButton" data-sentiment="all">Show All</button>
+    </div>
+    {% for article, score in results %}
+        <div class="article">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.text }}</p>
+            <p class="article-sentiment-stats">
+                Positive: {{ (score['pos'] * 100)|round(2) }}% |
+                Neutral: {{ (score['neu'] * 100)|round(2) }}% |
+                Negative: {{ (score['neg'] * 100)|round(2) }}%
+            </p>
+            {% if score['pos'] > score['neu'] and score['pos'] > score['neg'] %}
+                <p>Sentiment: <span class="positive">Positive</span></p>
+            {% elif score['neg'] > score['neu'] %}
+                <p>Sentiment: <span class="negative">Negative</span></p>
+            {% else %}
+                <p>Sentiment: <span class="neutral">Neutral</span></p>
+            {% endif %}
+            <hr>
+        </div>
+    {% endfor %}
+
+     <script>
+        const filterButtons = document.querySelectorAll('.filterButton');
+        const articles = document.querySelectorAll('.article');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const sentiment = button.dataset.sentiment;
+                articles.forEach(article => {
+                    const articleSentiment = article.querySelector('span').classList[0];
+                    if (sentiment === 'all' || sentiment === articleSentiment) {
+                        article.style.display = 'block';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
