@@ -1,8 +1,10 @@
 # News Sentiment Analyzer
 
 The News Sentiment Analyzer is a web application that allows users to analyze the sentiment of news articles based on a keyword search. It retrieves news articles from the newsapi.org API, performs sentiment analysis using the VADER (Valence Aware Dictionary and sEntiment Reasoner) algorithm, and displays the sentiment analysis results.
+VADER (Valence Aware Dictionary and sentiment Reasoner) lexicon and is a rule-based sentiment analysis tool specifically designed for sentiment intensity estimation in social media texts with an excellent pre-trained model included in the Natural Language Toolkit (NLTK) library.
 
-A demo is available on [Heroku server](https://news-sentiment-analyzer.herokuapp.com).
+
+A demo is available on 👉 [Heroku server](https://news-sentiment-analyzer.herokuapp.com).
 
 
 ![Screenshot 1](https://github.com/riccardobertolini/NewsSentimentAnalyzer/blob/main/img/image1.png?raw=true)
