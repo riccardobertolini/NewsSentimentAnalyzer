@@ -8,6 +8,7 @@
             background-color: #f1f1f1;
             margin: 0;
             padding: 0;
+            font-size: 16px;
         }
 
         h1 {
@@ -22,6 +23,7 @@
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
 
         p {
@@ -58,22 +60,13 @@
             max-width: 400px;
         }
 
-        /* Add custom Google Fonts */
+        /* Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        /* Additional styles */
-        body {
-            font-size: 16px;
-        }
-
-        .container {
-            margin-top: 50px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>News Sentiment Analysis</h1>
+        <h1>News Sentiment Analysis 🔎</h1>
         <p>This software will evaluate the news available on newsapi.org, inspecting the sentiment and returning an evaluation.</p>
         <p>On the result page, buttons on top will help to filter out.</p>
         <form action="/analyze" method="POST" class="formGroup">
